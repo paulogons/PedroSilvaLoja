@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
-  shape, number
+  shape
 } from 'prop-types';
 
-const ClientsUpdate = (id, client) => {
+const ClientsCreate = (client) => {
 
+  const input1 = {};
+  const input2 = {};
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [greeting, setGreeting] = useState(
@@ -12,30 +15,12 @@ const ClientsUpdate = (id, client) => {
   );
 
   useEffect(() => {
-    getClientById(id)
+
   }, [])
 
-  const getClientById = (id) => {
-    fetch(`http://localhost:8000/clientes/${id}`)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        setIsLoaded(true);
-        client = result;
-      },
-      // Note: it's important to handle errors here
-      // instead of a catch() block so that we don't swallow
-      // exceptions from actual bugs in components.
-      (error) => {
-        setIsLoaded(true);
-        setError(error);
-      }
-    )
-  };
-
-  const updateClient = () => {
+  const createClient = (client) => {
     const requestOptions = {
-      method: 'PUT',
+      method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(client)
     };
@@ -61,8 +46,7 @@ const ClientsUpdate = (id, client) => {
   };
 
   const handleSubmit = (event) => {
-    alert('A name was submitted: ' + client.nome);
-    updateClient(client);
+    createClient(client);
     event.preventDefault();
   };
 
@@ -82,14 +66,12 @@ return (
 
 };
 
-ClientsUpdate.defaultProps = {
+ClientsCreate.defaultProps = {
   client: {},
-  id: 1,
 };
 
-ClientsUpdate.propTypes = {
+ClientsCreate.propTypes = {
   client: shape({}).isRequired,
-  id: number.isRequired,
 };
 
-export default ClientsUpdate;
+export default ClientsCreate;
