@@ -6,8 +6,6 @@ import {
 
 const ClientsCreate = (client) => {
 
-  const input1 = {};
-  const input2 = {};
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [greeting, setGreeting] = useState(
