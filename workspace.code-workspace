@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "assets",
+			"path": "..\\..\\Downloads\\bootstrap-4.5.3-examples\\bootstrap-4.5.3-examples\\assets"
+		},
+		{
+			"name": "crudappserver",
+			"path": "..\\..\\crudappserver"
+		}
+	],
+	"settings": {}
+}

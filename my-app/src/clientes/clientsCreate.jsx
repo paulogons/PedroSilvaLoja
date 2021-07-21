@@ -51,17 +51,23 @@ const ClientsCreate = (client) => {
   };
 
 return (
-  <form onSubmit={handleSubmit}>
-    <label>
-      Nome:
-      <input type="text" value={client.nome} />
-    </label>
-    <label>
-      Morada:
-      <input type="text" value={client.morada} />
-    </label>
-    <input type="submit" value="Submit" />
+ 
+  <div class="margem">
+     <h1 align="left">Create Cliente</h1>
+    
+  <form onSubmit={handleSubmit} align="left">
+  <table  >
+      <tr height="40px"><td>Nr:</td></tr>
+      <tr height="40px"><td><input type="text" value={client.nr} size="50"/></td></tr>
+      <tr height="40px"><td>Nome:</td></tr>
+      <tr height="40px"><td><input type="text" value={client.nome} size="50"/></td></tr>
+      <tr height="40px"><td>Morada:</td></tr>
+      <tr height="40px"><td><input type="text" value={client.morada} size="50"/></td></tr>
+      <tr height="50px"><td><button type="submit" value="Criar" class="btn btn-primary">Criar</button></td></tr>
+    </table>
+  
   </form>
+  </div>
 );
 
 };

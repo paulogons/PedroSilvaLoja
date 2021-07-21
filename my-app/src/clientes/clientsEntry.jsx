@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {AgGridReact} from 'ag-grid-react';
+import {AgGridColumn, AgGridReact} from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import ClientsUpdate from './clientsUpdate';
@@ -43,10 +43,11 @@ const ClientEntry = () => {
     }
 
     const columnDefs =  [
-        {headerName: 'ID', field: '_id'},
+        //{headerName: 'ID', field: '_id'},
         {headerName: 'Nr', field: 'nr'},
         {headerName: 'Nome', field: 'nome'},
         {headerName: 'Morada', field: 'morada'}
+       
     ];
 
     return (
@@ -62,12 +63,15 @@ const ClientEntry = () => {
         {
         (appState == 'entry') &&
         <div>
-          <button onClick={goToUpdate}>update</button>
-          <button onClick={goToCreate}>create</button>
-          <div className="ag-theme-alpine" style={{height: 200, width: 600}}>
+         
+          <button onClick={goToCreate} class="btn btn-primary">Create</button>
+          <p>&nbsp;</p>
+          <button onClick={goToUpdate} class="btn btn-primary">update</button>
+          <div className="ag-theme-alpine" style={{height: 500, width: 1300}}>
             <AgGridReact
                 rowData={clients}
                 columnDefs={columnDefs}>
+                 
             </AgGridReact>
           </div>
         </div>
